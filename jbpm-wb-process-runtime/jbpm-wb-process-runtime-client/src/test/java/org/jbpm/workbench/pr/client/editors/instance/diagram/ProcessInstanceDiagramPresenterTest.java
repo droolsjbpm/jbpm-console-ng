@@ -238,7 +238,7 @@ public class ProcessInstanceDiagramPresenterTest {
         ArgumentCaptor<Map> badgesInstancesCaptor = ArgumentCaptor.forClass(Map.class);
         verify(view).setNodeBadges(badgesInstancesCaptor.capture());
         final Map<String, Long> badges = badgesInstancesCaptor.getValue();
-        assertThat(badges).containsExactly(immutableEntry("_1", 1l), immutableEntry("_2", 1l), immutableEntry("_3", 1l), immutableEntry("_4", 1l));
+        assertThat(badges).containsOnly(immutableEntry("_1", 1l), immutableEntry("_2", 1l), immutableEntry("_3", 1l), immutableEntry("_4", 1l));
     }
 
     @Test
