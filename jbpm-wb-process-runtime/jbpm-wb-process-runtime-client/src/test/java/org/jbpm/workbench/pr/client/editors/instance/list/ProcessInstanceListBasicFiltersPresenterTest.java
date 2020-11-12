@@ -84,7 +84,7 @@ public class ProcessInstanceListBasicFiltersPresenterTest extends AbstractBasicF
         ArgumentCaptor<Map> slaDescriptionsCaptors = ArgumentCaptor.forClass(Map.class);
         verify(getView()).addSelectFilter(anyString(), slaDescriptionsCaptors.capture(), any());
         final Map<String, String> slaDescriptions = slaDescriptionsCaptors.getValue();
-        assertThat(slaDescriptions).containsExactly(
+        assertThat(slaDescriptions).containsOnly(
                 immutableEntry(String.valueOf(ProcessInstance.SLA_NA), commonConstants.INSTANCE.SlaNA()),
                 immutableEntry(String.valueOf(ProcessInstance.SLA_PENDING), commonConstants.SlaPending()),
                 immutableEntry(String.valueOf(ProcessInstance.SLA_MET), commonConstants.SlaMet()),
