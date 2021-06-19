@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component>
-  <!-- Assembly configuration for WildFly 18 and EAP 7 -->
+  <!-- Assembly configuration for WildFly 23 and EAP 7 -->
   <dependencySets>
     <dependencySet>
       <includes>

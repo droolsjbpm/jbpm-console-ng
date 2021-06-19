@@ -57,6 +57,12 @@
       <groupId>org.kie.workbench.screens</groupId>
       <artifactId>kie-wb-common-workbench-client</artifactId>
       <scope>provided</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>javax.persistence</groupId>
+          <artifactId>javax.persistence-api</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     
     <dependency>
@@ -77,6 +83,16 @@
     <dependency>
       <groupId>org.kie.server</groupId>
       <artifactId>kie-server-api</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>javax.xml.bind</groupId>
+          <artifactId>jaxb-api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>javax.activation</groupId>
+          <artifactId>activation</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <!-- Dashbuilder -->
 
@@ -242,6 +258,10 @@
           <groupId>ant</groupId>
           <artifactId>ant</artifactId>
         </exclusion>
+        <exclusion>
+          <groupId>org.mortbay.jasper</groupId>
+          <artifactId>apache-el</artifactId>
+        </exclusion>
       </exclusions>
     </dependency>
 
@@ -263,6 +283,12 @@
       <groupId>org.jbpm</groupId>
       <artifactId>jbpm-human-task-audit</artifactId>
       <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>javax.persistence</groupId>
+          <artifactId>javax.persistence-api</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
     <dependency>

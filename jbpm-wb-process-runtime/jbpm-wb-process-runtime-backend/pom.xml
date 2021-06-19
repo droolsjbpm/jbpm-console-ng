@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- ~ Copyright 2012 Red Hat, Inc. and/or its affiliates. ~ ~ Licensed under 
+<!-- ~ Copyright 2012 Red Hat, Inc. and/or its affiliates. ~ ~ Licensed under
   the Apache License, Version 2.0 (the "License"); ~ you may not use this file 
   except in compliance with the License. ~ You may obtain a copy of the License 
   at ~ ~ http://www.apache.org/licenses/LICENSE-2.0 ~ ~ Unless required by 
@@ -71,6 +71,16 @@
     <dependency>
       <groupId>org.jbpm</groupId>
       <artifactId>jbpm-document</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>javax.transaction</groupId>
+          <artifactId>javax.transaction-api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>javax.persistence</groupId>
+          <artifactId>javax.persistence-api</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.jbpm</groupId>
@@ -103,6 +113,16 @@
     <dependency>
       <groupId>org.kie.server</groupId>
       <artifactId>kie-server-api</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>javax.xml.bind</groupId>
+          <artifactId>jaxb-api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>javax.activation</groupId>
+          <artifactId>activation</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
     <dependency>

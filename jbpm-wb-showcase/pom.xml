@@ -268,10 +268,22 @@
     <dependency>
       <groupId>org.uberfire</groupId>
       <artifactId>uberfire-ssh-api</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.apache.sshd</groupId>
+          <artifactId>sshd-core</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.uberfire</groupId>
       <artifactId>uberfire-ssh-backend</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.apache.sshd</groupId>
+          <artifactId>sshd-core</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.uberfire</groupId>
@@ -359,6 +371,20 @@
       <groupId>org.jbpm</groupId>
       <artifactId>jbpm-runtime-manager</artifactId>
       <scope>runtime</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>javax.xml.bind</groupId>
+          <artifactId>jaxb-api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>javax.persistence</groupId>
+          <artifactId>javax.persistence-api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>javax.transaction</groupId>
+          <artifactId>javax.transaction-api</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
     <!-- jBPM WB Panels -->
@@ -592,6 +618,12 @@
       <groupId>org.uberfire</groupId>
       <artifactId>uberfire-metadata-commons-io</artifactId>
       <scope>runtime</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.jboss.marshalling</groupId>
+          <artifactId>jboss-marshalling-osgi</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
     <dependency>
@@ -728,8 +760,8 @@
     </dependency>
 
     <dependency>
-      <groupId>org.jboss.spec.javax.transaction</groupId>
-      <artifactId>jboss-transaction-api_1.2_spec</artifactId>
+      <groupId>jakarta.transaction</groupId>
+      <artifactId>jakarta.transaction-api</artifactId>
       <scope>provided</scope>
     </dependency>
 
@@ -779,6 +811,12 @@
       <groupId>org.uberfire</groupId>
       <artifactId>uberfire-project-backend</artifactId>
       <scope>runtime</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.apache.sshd</groupId>
+          <artifactId>sshd-core</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.uberfire</groupId>
@@ -1224,6 +1262,12 @@
     <dependency>
       <groupId>org.kie.workbench.services</groupId>
       <artifactId>kie-wb-common-data-modeller-core</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>javax.persistence</groupId>
+          <artifactId>javax.persistence-api</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
     <dependency>
@@ -1244,8 +1288,8 @@
     </dependency>
 
     <dependency>
-      <groupId>org.jboss.spec.javax.servlet.jstl</groupId>
-      <artifactId>jboss-jstl-api_1.2_spec</artifactId>
+      <groupId>jakarta.servlet.jsp.jstl</groupId>
+      <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
       <scope>provided</scope>
     </dependency>
 
@@ -1281,6 +1325,10 @@
           <groupId>javax.xml.ws</groupId>
           <artifactId>jaxws-api</artifactId>
         </exclusion>
+        <exclusion>
+          <groupId>javax.activation</groupId>
+          <artifactId>activation</artifactId>
+        </exclusion>
       </exclusions>
     </dependency>
     <dependency>
@@ -1311,6 +1359,16 @@
     <dependency>
       <groupId>org.kie.server</groupId>
       <artifactId>kie-server-api</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>javax.xml.bind</groupId>
+          <artifactId>jaxb-api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>javax.activation</groupId>
+          <artifactId>activation</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
     <dependency>
@@ -1717,6 +1775,12 @@
       <groupId>org.wildfly.arquillian</groupId>
       <artifactId>wildfly-arquillian-container-managed</artifactId>
       <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.apache.sshd</groupId>
+          <artifactId>sshd-common</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.jboss.arquillian.junit</groupId>

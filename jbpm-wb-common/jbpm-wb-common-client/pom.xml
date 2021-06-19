@@ -116,6 +116,12 @@
     <dependency>
       <groupId>org.kie.workbench.screens</groupId>
       <artifactId>kie-wb-common-workbench-client</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>javax.persistence</groupId>
+          <artifactId>javax.persistence-api</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
     <dependency>
@@ -189,6 +195,10 @@
         <exclusion>
           <groupId>ant</groupId>
           <artifactId>ant</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.mortbay.jasper</groupId>
+          <artifactId>apache-el</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
