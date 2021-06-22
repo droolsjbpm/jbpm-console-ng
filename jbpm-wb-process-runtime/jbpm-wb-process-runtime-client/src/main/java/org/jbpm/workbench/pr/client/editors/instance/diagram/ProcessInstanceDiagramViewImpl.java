@@ -100,8 +100,6 @@ public class ProcessInstanceDiagramViewImpl extends Composite implements Process
 
     private Command parentSelectedCommand;
 
-    private boolean renderBadges = true;
-
     private Map<String, Long> badges = new HashMap<>();
 
     private Constants constants = Constants.INSTANCE;
@@ -272,7 +270,6 @@ public class ProcessInstanceDiagramViewImpl extends Composite implements Process
     @Override
     public void setNodeBadges(final Map<String, Long> badges) {
         this.badges = badges;
-        renderBadges = true;
     }
 
     @Override
@@ -281,14 +278,26 @@ public class ProcessInstanceDiagramViewImpl extends Composite implements Process
     }
 
     protected void showHideBadges(){
-        final D3 d3 = D3.Builder.get();
-        final String processDiagramDivId = diagram.getProcessDiagramDivId();
-        final D3 nodes = d3.selectAll("#" + processDiagramDivId + " svg [jbpm-node-badge]");
+        final D3 nodes = getSelectionOfNodeBadge();
         nodes.attr("visibility", nodeCounterView.showBadges() ? "visible" : "hidden");
     }
 
+    private boolean isRenderBadges() {
+        final D3.Selection nodes = getSelectionOfNodeBadge();
+        if (nodes.empty()) {
+            return true;
+        }
+        return false;
+    }
+
+    private D3.Selection getSelectionOfNodeBadge() {
+        final D3 d3 = D3.Builder.get();
+        final String processDiagramDivId = diagram.getProcessDiagramDivId();
+        return d3.selectAll("#" + processDiagramDivId + " svg [jbpm-node-badge]");
+    }
+
     protected void renderBadges() {
-        if(renderBadges == false){
+        if(!isRenderBadges()){
             return;
         }
 
@@ -342,8 +351,6 @@ public class ProcessInstanceDiagramViewImpl extends Composite implements Process
         });
 
         showHideBadges();
-
-        renderBadges = false;
     }
 
     @Override

@@ -90,8 +90,6 @@ public class ProcessDiagramWidgetViewImpl extends Composite implements ProcessDi
         d3 = D3.Builder.get();
         expandAnchor.setIcon(IconType.EXPAND);
         this.isDoubleClick = false;
-
-        processDiagramDiv.id = DOM.createUniqueId();
     }
 
     @Override
@@ -106,6 +104,7 @@ public class ProcessDiagramWidgetViewImpl extends Composite implements ProcessDi
 
     @Override
     public void displayImage(final String svgContent) {
+        processDiagramDiv.id = DOM.createUniqueId();
         processDiagramDiv.innerHTML = svgContent;
 
         final D3 svg = d3.select("#" + processDiagramDiv.id + " svg");

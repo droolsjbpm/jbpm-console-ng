@@ -169,6 +169,10 @@ public class ProcessInstanceDetailsPresenter implements RefreshMenuBuilder.Suppo
         setIsForLog(event.isForLog());
         setSignalAbortActionsVisible(false);
 
+        refreshProcessInstance(event, refreshDetails);
+    }
+
+    private void viewDisplay(ProcessInstanceSelectionEvent event, boolean refreshDetails) {
         if (isForLog()) {
             view.displayOnlyLogTab();
         } else {
@@ -177,14 +181,12 @@ public class ProcessInstanceDetailsPresenter implements RefreshMenuBuilder.Suppo
         if (!refreshDetails) {
             view.resetTabs(event.isForLog());
         }
-        refreshProcessInstance();
-
         if (event.isFromDiagram()) {
             view.showDiagramTab();
         }
     }
 
-    protected void refreshProcessInstance(){
+    protected void refreshProcessInstance(ProcessInstanceSelectionEvent event, boolean refreshDetails){
         processRuntimeDataService.call((ProcessInstanceSummary pi) -> {
 
             changeTitleWidgetEvent.fire(new ChangeTitleWidgetEvent(this.place,
@@ -197,6 +199,8 @@ public class ProcessInstanceDetailsPresenter implements RefreshMenuBuilder.Suppo
             detailsPresenter.setProcessInstance(pi);
             documentListPresenter.setProcessInstance(pi);
             processInstanceLogPresenter.setProcessInstance(pi);
+
+            viewDisplay(event, refreshDetails);
         }).getProcessInstance(processInstance);
     }
 

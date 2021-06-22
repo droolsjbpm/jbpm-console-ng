@@ -121,7 +121,6 @@ public class ProcessInstanceDiagramPresenter implements ProcessInstanceSummaryAw
 
         loadProcessInstanceDetails();
         loadTimerInstances();
-        view.onShow();
     }
 
     public void onProcessInstanceSelectionEvent(@Observes final ProcessInstanceSelectionEvent event) {
@@ -170,6 +169,7 @@ public class ProcessInstanceDiagramPresenter implements ProcessInstanceSummaryAw
 
             view.showOrHideNodeActionsTriggered();
             expandDiagram(processInstance, summary);
+            view.onShow();
 
         }, (Object o, Throwable throwable) -> {
             notification.fire(new NotificationEvent(Constants.INSTANCE.CanNotGetInstancesDetailsMessage(throwable.getMessage()), NotificationEvent.NotificationType.WARNING));

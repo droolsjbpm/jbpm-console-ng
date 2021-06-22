@@ -87,6 +87,7 @@ public class ProcessDiagramWidgetViewTest {
         String svgContent = "svgContent";
 
         view.displayImage(svgContent);
+        assertNotNull(view.getProcessDiagramDivId());
         double[] scaleExtent = new double[2];
         scaleExtent[0] = 0.1;
         scaleExtent[1] = 3;
@@ -98,7 +99,6 @@ public class ProcessDiagramWidgetViewTest {
     public void testInit() {
         view.init();
         assertFalse(view.isDoubleClick);
-        assertNotNull(view.getProcessDiagramDivId());
     }
 
     @Test
