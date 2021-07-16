@@ -192,9 +192,7 @@ public class ProcessDiagramWidgetViewImpl extends Composite implements ProcessDi
     }
 
     protected native D3.Selection select() /*-{
-        return $wnd.d3.selectAll("[bpmn2nodeid]").filter(function(){
-            return $wnd.d3.select(this).select("[bpmn2nodeid]").empty();
-        });
+        return $wnd.d3.selectAll("[bpmn2nodeid]");
     }-*/;
 
     private void refreshExtent(D3.Zoom zoom, double minX, double minY, double maxX, double maxY) {
